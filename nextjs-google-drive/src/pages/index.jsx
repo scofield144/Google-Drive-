@@ -13,9 +13,12 @@ const  Home = () => {
       </Head> 
       
       <Header />
+      
       <div className="main-container">           
+        <SideBar />
         <Dashboard/>        
       </div>
+      
     </>
   )
 }  

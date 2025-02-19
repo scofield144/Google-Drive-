@@ -110,6 +110,18 @@ main {
 .video-container {
  margin-bottom: 5px;
 }
+.side-bar {
+    
+    width: 400px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+
+
 
 
 
