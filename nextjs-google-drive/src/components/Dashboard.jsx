@@ -12,8 +12,15 @@ const Dashboard = () => {
                 value={""}
             />
             <div className="uploads-container">
-                <ImageCard/>
-                <VideoCard/>
+            {/* {assets?.map(asset => 
+                asset.resource_type == "image" &&
+                    <ImageCard key={asset.asset_id} asset={asset} />
+                ||
+                    <VideoCard key={asset.asset_id} asset={asset} />               
+            )} */}
+            <ImageCard />
+            <VideoCard />
+                
             </div>
         </main>
 

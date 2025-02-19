@@ -1,12 +1,12 @@
 import { CldUploadWidget } from "next-cloudinary";
 
-const SideBar = () => {
-  return (
+const SideBar = ({onHandleNewUpload}) => {
+  return ( 
     <article className="side-bar">
       <CldUploadWidget
       uploadPreset="demo_tutorial"
       onSuccess={result => {
-        console.log(response);
+        console.log(result);
         onHandleNewUpload(result.info);
 
         }}
