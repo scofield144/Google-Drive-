@@ -3,7 +3,26 @@ import { CldUploadWidget } from "next-cloudinary";
 const SideBar = () => {
   return (
     <article className="side-bar">
-      <CldUploadWidget/>
+      <CldUploadWidget
+      uploadPreset="demo_tutorial"
+      onSuccess={result => {
+        console.log(response);
+        onHandleNewUpload(result.info);
+
+        }}
+        onQueuesEnd={(result, {widget}) => {
+          widget.close();
+        }}
+        >
+        {({open})=> {
+          function handleClick() {
+            open();
+          }
+          return <button onClick={handleClick} className="new-button">+ New</button>
+        }  }
+
+      </CldUploadWidget>
+
 
       <ul>
         <li>Home</li>
