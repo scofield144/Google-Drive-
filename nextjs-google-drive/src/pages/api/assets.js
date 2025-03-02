@@ -1,4 +1,4 @@
-import {v2 as cloudinary} from "next-cloudinary";
+import {v2 as cloudinary} from "cloudinary";
 
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
@@ -7,8 +7,17 @@ cloudinary.config({
 });
 
 const handler = async (req, res) =>{
-    const data = await cloudinary.search.execute();
-    res.status(200).json(data.resources)
-}
+try {
+  const data = await cloudinary.search
+  .expression("resource_type:image")
+  .sort_by("public_id","desc")
+  .max_results(10)
+  .execute();
+  res.status(200).json(data.resources);
 
+} catch(error) {
+  console.error("Cloudinary API Error", error);
+  res.status(500).json({error: "Error fetching resources"});
+}
+};
 export default handler;

@@ -1,6 +1,6 @@
 import VideoCard from './VideoCard'
 import ImageCard from './ImageCard'
-const Dashboard = () => {
+const Dashboard = ({assets }) => {
     return (
         <main>
             <h2>
@@ -12,18 +12,17 @@ const Dashboard = () => {
                 value={""}
             />
             <div className="uploads-container">
-            {/* {assets?.map(asset => 
+            {assets?.length > 0 ?(assets.map(asset => 
                 asset.resource_type == "image" &&
                     <ImageCard key={asset.asset_id} asset={asset} />
                 ||
                     <VideoCard key={asset.asset_id} asset={asset} />               
-            )} */}
-            <ImageCard />
-            <VideoCard />
+            ))
+            :
+            ( <p>No assets found</p>)
+            }
                 
             </div>
-        </main>
-
-    )
+        </main>    )
 }
 export  default Dashboard;

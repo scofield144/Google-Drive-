@@ -21,7 +21,7 @@ const SideBar = ({onHandleNewUpload}) => {
           return <button onClick={handleClick} className="new-button">+ New</button>
         }  }
 
-      </CldUploadWidget>
+    </CldUploadWidget>
 
 
       <ul>
