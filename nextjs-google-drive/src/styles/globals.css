@@ -1,12 +1,44 @@
 /*Font Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap');
 
+/* Define color variables */
+:root {
+    --background-color: rgb(240, 240, 248);
+    --text-color: rgb(40, 40, 40);
+    --button-background-color: rgb(255, 255, 255);
+    --button-hover-background-color: rgb(224, 224, 241);
+    --button-active-background-color: rgb(236, 238, 241);
+    --card-background-color: rgb(240, 240, 248);
+    --main-background-color: rgb(250, 250, 250);
+    --main-search-background-color: rgb(225, 226, 227);
+    --main-search-focus-background-color: rgb(250, 250, 250);
+    --li-hover-background-color: #65badb;
+    --li-selected-background-color: #3b82f6;
+    --li-selected-text-color: white;
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: rgb(24, 24, 28);
+        --text-color: rgb(200, 200, 200);
+        --button-background-color: rgb(55, 55, 55);
+        --button-hover-background-color: rgb(75, 75, 75);
+        --button-active-background-color: rgb(95, 95, 95);
+        --card-background-color: rgb(34, 34, 38);
+        --main-background-color: rgb(40, 40, 44);
+        --main-search-background-color: rgb(55, 55, 55);
+        --main-search-focus-background-color: rgb(75, 75, 75);
+        --li-hover-background-color: #3b82f6;
+        --li-selected-background-color: #1e3a8a;
+        --li-selected-text-color: white;
+    }
+}
 
 * {
-    
     font-family: Poppins,Tahoma, sans-serif;
     font-weight: 300;
-    color: rgb(40,40,40)
+    color: var(--text-color);
 }
 
 html, body {
@@ -28,7 +60,7 @@ h4 {
 }
 
 body {
-    background-color: rgb(240,240,248);
+    background-color: var(--background-color);
 }
 
 header {    
@@ -42,7 +74,7 @@ header {
     display: flex;
 }
 main {
-    background-color: rgb(250,250,250);
+    background-color: var(--main-background-color);
     width: 100%;
     height: 100%;
     border-radius: 30px;
@@ -53,22 +85,26 @@ main {
 }
 
 .main-search {
-    background-color: rgb(240,244,248);
+    background-color: var(--main-search-background-color);
     border: none;
     font-size: 20px;
     padding: 10px 30px;
     margin: 0 0 60px 0;
     border-radius: 30px;
     color: rgb(95,99,104);
-    width: 60%;
+    min-width: 70%;
+}
+.main-search:focus {
+    background-color: var(--main-search-focus-background-color);
 }
 
 .card {
-    background-color: rgb(240, 240, 248);
+    background-color: var(--card-background-color);
     padding: 15px;
     border-radius: 15px;
-
+    
 }
+
 .title-container {
     display: flex;
     justify-content: space-between;
@@ -129,21 +165,49 @@ main {
 }
 
 .new-button {
-    padding:22px; 
-    margin:10px 30px;
+    padding:20px; 
+    margin: 10px 30px;
     border-radius: 15px;
-    background-color  : rgb(255, 255,255);
+    width: 140px;
+    background-color: var(--button-background-color);
     border: none;
-    font-size: 18px;
-    box-shadow:rgba(50, 50, 50,93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-
+    font-size: 20px;
+    
+    box-shadow:rgba(50, 50, 50,93, 0.25) 0px 2px 5px -1px,
+     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+     
 }
+.new-button:hover {
+    display: inline-block;
+    
+    margin-right: 0.25rem;
+    background-color: var(--button-hover-background-color);  
+    border: 5   px;
+  }
 .new-button:active {
-    background-color: rgb(236,238,241);
+    background-color: var(--button-active-background-color);
     box-shadow: inset rgba(0,0,0,0.1) 1px 1px 0, inset rgba(0,0,0,0.2) 0px -1px 0px;
     
 }
-
+.new-button--loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1.25rem;
+      height: 1.25rem;
+      border: 3px solid #e2e8f0;
+      border-top-color: #4299e1;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
 
 
 .uploads-container {
@@ -154,8 +218,80 @@ main {
     justify-content: center; 
 }
 
-list {
-    padding: 10px;
-    font-size: 18px;
-    list-style-type: none;
+
+/* Base Styles */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 240px;
+  }
+  
+  li {
+    padding: 12px 16px;
+    margin: 4px 0;
+    
+    
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Icon Styling */
+  li::before {
+    content: '';
+  }
+  
+  /* Section Dividers */
+  br + li {
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+  }
+  
+  
+ 
+  li:nth-child(9)::after {
+    content: '75%';
+    position: absolute;
+    right: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748b;
+    background: #e2e8f0;
+    padding: 2px 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  
+  li:nth-child(9):hover::after {
+    background: #3b82f6;
+    color: white;
+  }
+
+li.selected {
+    background: #3b82f6;
+    color: white;
+    font-weight: 600;
+  }
+  
+  li.selected::before {
+    opacity: 1;
+    filter: brightness(0) invert(1);
+  }
+  li.loading {
+    pointer-events: none;
+  }
+ 
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+.btn {
+    background-color: var(--button-background-color);
 }

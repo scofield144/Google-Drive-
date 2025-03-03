@@ -4,13 +4,13 @@ const Header = () =>  {
     return (
         <header>
         <Image
-        src="/drive_logo.png"
+        src="/driver_google.png"
         alt='Drive Logo'
-        width={50}
-        height={50}
+        width={80}
+        height={70}
         >
         </Image>
-        <h1>Google</h1>
+        <h1>Drive</h1>
 
         </header>
     )

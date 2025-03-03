@@ -1,0 +1,220 @@
+:root {
+    /* Light mode variables */
+    --text-primary: 40, 40, 40;
+    --background-primary: 240, 240, 248;
+    --background-secondary: 250, 250, 250;
+    --accent-primary: 85, 85, 246;
+    --button-background: 255, 255, 255;
+    --card-background: 240, 240, 248;
+    --input-background: 225, 226, 227;
+    --hover-background: 224, 224, 241;
+    --active-background: 236, 238, 241;
+    --shadow-color: 50, 50, 50;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Dark mode variables */
+      --text-primary: 240, 240, 240;
+      --background-primary: 18, 18, 20;
+      --background-secondary: 30, 30, 32;
+      --accent-primary: 135, 135, 255;
+      --button-background: 40, 40, 42;
+      --card-background: 30, 30, 32;
+      --input-background: 50, 50, 52;
+      --hover-background: 60, 60, 62;
+      --active-background: 70, 70, 72;
+      --shadow-color: 0, 0, 0;
+    }
+  
+    /* Dark mode specific adjustments */
+    body {
+      background-color: rgb(var(--background-primary));
+    }
+  
+    main {
+      background-color: rgb(var(--background-secondary));
+    }
+  
+    .card {
+      background-color: rgba(var(--card-background), 0.9);
+    }
+  
+    .main-search {
+      background-color: rgb(var(--input-background));
+      color: rgb(var(--text-primary));
+    }
+  
+    .main-search:focus {
+      background-color: rgb(var(--background-secondary));
+    }
+  
+    li {
+      color: rgb(var(--text-primary));
+    }
+  
+    br + li {
+      border-top-color: rgba(var(--text-primary), 0.2);
+    }
+  
+    li:nth-child(9)::after {
+      background: rgba(var(--text-primary), 0.1);
+      color: rgb(var(--text-primary));
+    }
+  
+    .new-button {
+      background-color: rgb(var(--button-background));
+      box-shadow: rgba(var(--shadow-color), 0.25) 0px 2px 5px -1px,
+                 rgba(var(--shadow-color), 0.3) 0px 1px 3px -1px;
+    }
+  
+    .new-button:hover {
+      background-color: rgb(var(--hover-background));
+    }
+  
+    .new-button:active {
+      background-color: rgb(var(--active-background));
+    }
+  
+    li.selected {
+      background: rgba(var(--accent-primary), 0.9);
+    }
+  }
+  
+  /* Updated base styles using CSS variables */
+  * {
+      color: rgb(var(--text-primary));
+  }
+  
+  body {
+      background-color: rgb(var(--background-primary));
+  }
+  
+  main {
+      background-color: rgb(var(--background-secondary));
+  }
+  
+  .card {
+      background-color: rgb(var(--card-background));
+  }
+  
+  .main-search {
+      background-color: rgb(var(--input-background));
+  }
+  
+  .new-button {
+      background-color: rgb(var(--button-background));
+  }
+  
+  li:hover {
+      background: rgba(var(--accent-primary), 0.1);
+  }
+  
+  li.selected {
+      background: rgba(var(--accent-primary), 0.9);
+  }
+  
+  .emoji {
+      color: rgb(var(--accent-primary));
+  }
+
+
+
+  .controls-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+  
+  .control-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .control-container input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(var(--text-primary), 0.4);
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: rgba(var(--background-secondary), 0.8);
+  }
+  
+  .control-container input[type="checkbox"]:checked {
+    background-color: rgb(var(--accent-primary));
+    border-color: rgb(var(--accent-primary));
+  }
+  
+  .control-container input[type="checkbox"]:checked::after {
+    content: "✓";
+    position: absolute;
+    left: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 12px;
+  }
+  
+  .control-container label {
+    
+    font-size: 14px;
+    cursor: pointer;
+    
+    transition: color 0.2s ease;
+  }
+  
+  .control-container:hover label {
+    color: rgb(var(--accent-primary));
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    background-color: rgb(var(--accent-primary));
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    display: flex;
+   
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .btn:hover {
+    background-color: rgba(var(--accent-primary), 0.9);
+    transform: translateY(-1px); 
+    color: tomato;
+  }
+  
+  .btn:active {
+    transform: translateY(0);
+    background-color: rgba(var(--accent-primary), 0.8);
+  }
+  
+  /* Dark mode adjustments */
+  @media (prefers-color-scheme: dark) {
+    .control-container input[type="checkbox"] {
+      border-color: rgba(255, 255, 255, 0.4);
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  
+    .control-container input[type="checkbox"]:checked {
+      background-color: rgb(var(--accent-primary));
+      border-color: rgb(var(--accent-primary));
+    }
+  
+    .btn {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn:hover {
+      background-color: rgba(var(--accent-primary), 0.8);
+    }
+  }

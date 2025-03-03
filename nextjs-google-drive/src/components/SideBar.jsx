@@ -18,27 +18,24 @@ const SideBar = ({onHandleNewUpload}) => {
           function handleClick() {
             open();
           }
-          return <button onClick={handleClick} className="new-button">+ New</button>
+          return <button onClick={handleClick} className="new-button"> + New</button>
         }  }
 
     </CldUploadWidget>
 
-
       <ul>
-        <li>Home</li>
-        <li>Activity</li>
-        <li>Workspaces</li> 
+        <li>🏠︎ Home</li>
+        <li>✎ Activity</li>
+        <li>모 Workspaces</li> 
         <br />
-        <li>My Drive</li>
-        <li>Shared Drives</li>
+
+        <li>♲ Shared with me</li>
+        <li>⏲ Recent</li>
+        <li>★ Starred</li>
         <br />
-        <li>Shared with me</li>
-        <li>Recent</li>
-        <li>Starred</li>
-        <br />
-        <li>Spam</li>
-        <li>Trash</li>
-        <li>Storage</li>
+        <li>ⓘ Spam</li>
+        <li>🗑 Trash</li>
+        <li>☁️ Storage</li>
       </ul>
 
 

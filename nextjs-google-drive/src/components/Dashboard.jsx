@@ -8,7 +8,7 @@ const Dashboard = ({assets,searchTerm,setSearchTerm }) => {
             </h2>
             <input
                 className="main-search"
-                placeholder="Search in Drive"
+                placeholder="🔍 Search on the Drive"
                 value={searchTerm}
                 onChange={(e)=> setSearchTerm(e.target.value)}
             />

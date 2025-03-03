@@ -13,7 +13,7 @@ const ImageCard = ({asset}) => {
     const imgSrc = document.getElementById(public_id).src;
     saveAs(imgSrc, display_name);
    }
-
+   
   return (
     <article className="card" >
       <div className="title-container">
@@ -35,17 +35,26 @@ const ImageCard = ({asset}) => {
         }
         alt={display_name}
       />      
-      <div className='controls-container'><div className="control-container">
-        <input type="checkbox" id="background" name="background" onChange={ ()=> setRemoveBackground(!removeBackground) } />
-        <label htmlFor="background">no background</label>
+      <div className='controls-container'>
+      <div className="control-container">
+        <input type="checkbox" id="background"
+         name="background" 
+         onChange={ ()=>
+          setRemoveBackground(!removeBackground) } />
+        <label htmlFor="background">
+        Background</label>
       </div>
       <div className="control-container">
-        <input type="checkbox" id="grayscale" name="grayscale" onChange={()=> setGrayscale (!grayscale)} />
+        <input type="checkbox" id="grayscale" 
+        name="grayscale" onChange={()=> setGrayscale (!grayscale)} />
         <label htmlFor="grayscale">Grayscale</label>
       </div>
-      <button className="btn"onClick={downloadImage}>↓Download</button>
+      <button className="btn" onClick={downloadImage}>
+      ↓Download</button>
       </div>
-      <input value={prompt} placeholder=" Start typing to change image" onChange={(e)=> setPrompt(e.target.value)}/>
+      <input value={prompt} placeholder="
+      Start typing to change image" 
+      onChange={(e)=> setPrompt(e.target.value)}/>
     </article>
   )
 }
