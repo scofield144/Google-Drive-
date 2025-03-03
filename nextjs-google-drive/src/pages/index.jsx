@@ -5,12 +5,13 @@ import Dashboard from "@/components/Dashboard";
 import SideBar from "@/components/SideBar";
  
 const  Home = () => {
-
-  const [assets, setAssets] = useState([]);
  
+  const [assets, setAssets] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
 const   getData= async () => {
   try {
-    const data = await fetch(`/api/assets`);
+    const data = await fetch(`/api/assets?${searchTerm}`);
     const media = await data.json();
     console.log("API response", media);
     setAssets(media);
@@ -21,7 +22,7 @@ const   getData= async () => {
 } 
 useEffect(() => {  
   getData();
-}, []);  
+}, [searchTerm]);  
   console.log("Assets", assets);
   
   const  onHandleNewUpload = (asset)  => {
@@ -39,7 +40,7 @@ useEffect(() => {
       
       <div className="main-container">           
         <SideBar onHandleNewUpload={onHandleNewUpload} />
-        <Dashboard assets={assets}/>        
+        <Dashboard assets={assets} searchTerm = {searchTerm} setSearchTerm ={setSearchTerm}/>        
       </div>
       
     </>
